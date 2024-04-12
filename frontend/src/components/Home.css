@@ -1,0 +1,47 @@
+/* Home.css */
+
+.home {
+    font-family: 'Arial', sans-serif;
+}
+
+.home-header {
+    background-color: #333;
+    color: white;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-title {
+    font-size: 24px;
+}
+
+.home-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.home-nav li {
+    margin: 0 10px;
+}
+
+.home-nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 8px;
+    margin-left: 10px;
+}
+
+.sustainable-platform {
+    padding: 20px;
+    text-align: center;
+}
