@@ -1,0 +1,9 @@
+div {
+    
+    background-image: url("./Gardening.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+h1,p{
+ color: white;   
+}
