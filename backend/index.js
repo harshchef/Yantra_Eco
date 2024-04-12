@@ -4,11 +4,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const eventRoutes = require("./routes");
-
+const cors = require("cors");
 const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
 // Connect to MongoDB Atlas
 mongoose
