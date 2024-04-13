@@ -7,23 +7,23 @@ const eventSchema = new mongoose.Schema({
   },
   organization: {
     type: String,
-    required: true,
+   // required: true,
   },
   time: {
     type: String,
-    required: true,
+   // required: true,
   },
   dayDate: {
     type: Date,
-    required: true,
+   // required: true,
   },
   venue: {
     type: String,
-    required: true,
+  //  required: true,
   },
   totalSeats: {
     type: Number,
-    required: true,
+  //  required: true,
   },
   seatsBooked: {
     type: Number,
@@ -31,13 +31,13 @@ const eventSchema = new mongoose.Schema({
   },
   cost: {
     type: Number,
-    required: true,
+   // required: true,
   },
   ratings: {
     type: Number,
     default: 0,
   },
-  image: {
+  imageUrl: {
     type: String, // Assuming image URL is stored as a string
     //required: true,
   },

@@ -63,13 +63,23 @@ function Home() {
           <div>
             {events.map((event) => (
               <div key={event._id}>
-                <h3>{event.eventName}</h3>
+                {/* <img
+                  src={`${event.imageUrl}`}
+                  alt={event.eventName}
+                /> */}
+                {event.imageUrl && (
+                  <img
+                    src={`${event.imageUrl}`}
+                    alt="Event"
+                    style={{ maxWidth: "30%", height: "30%" }}
+                  />
+                )}
                 <p>Venue: {event.venue}</p>
                 <p>Organization: {event.organization}</p>
                 <p>Day: {event.dayDate}</p>
                 <p>Total Seats: {event.totalSeats}</p>
                 <p>Cost: {event.cost}</p>
-                <p>Remaining Seats:{event.totalSeats-event.seatsBooked}</p>
+                <p>Remaining Seats:{event.totalSeats - event.seatsBooked}</p>
                 <button onClick={() => handleBook(event._id)}>Book</button>
               </div>
             ))}
