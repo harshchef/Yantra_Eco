@@ -4,8 +4,15 @@
 const express = require("express");
 const router = express.Router();
 const Event = require("./eventModel");
+const multer = require("multer");
+const path = require("path");
+
+
 
 // Endpoint to add an event
+
+
+
 router.post("/eventsAdd", async (req, res) => {
   try {
     const { eventName, organization, time, dayDate, venue, totalSeats, cost } =

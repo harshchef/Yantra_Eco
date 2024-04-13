@@ -37,6 +37,10 @@ const eventSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  image: {
+    type: String, // Assuming image URL is stored as a string
+    //required: true,
+  },
   testimonials: [
     {
       name: String,
