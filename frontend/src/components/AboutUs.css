@@ -57,7 +57,7 @@ p {
 .abtsection1 {
     width: 50%;
     background-color: rgb(251, 231, 208);
- 
+    text-align: justify;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,8 +71,8 @@ p {
 }
 
 .abtabout {
-    height: 400px;
-    width: 400px;
+    height: 300px;
+    width: 300px;
     border-radius: 50%;
 }
 

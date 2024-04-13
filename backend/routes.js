@@ -84,6 +84,8 @@ const router = express.Router();
 const Event = require("./eventModel");
 const multer = require("multer");
 const path = require("path");
+const Razorpay = require("razorpay");
+const Order=require('./orderModel')
 const PORT=3000
 // Multer configuration for file upload
 const storage = multer.diskStorage({
@@ -97,6 +99,64 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
+
+const razorpay = new Razorpay({
+  key_id: "rzp_test_vRwXeoy3syx0AJ",
+  key_secret: "1EWqm2NVGrHQiV0MUYGL50Qp",
+});
+
+router.post("/orders", async (req, res) => {
+  try {
+    const { amount } = req.body;
+
+    // Create order options
+    const options = {
+      amount: amount * 100, // Razorpay requires amount in paisa (smallest currency unit)
+      currency: "INR",
+    };
+
+    // Create order using Razorpay API
+    razorpay.orders.create(options, (err, order) => {
+      if (err) {
+        console.error("Error creating order:", err);
+        return res.status(500).json({ message: "Error creating order" });
+      } else {
+        // Order created successfully, return order_id to the client
+        res.status(200).json({ order_id: order.id });
+      }
+    });
+  } catch (error) {
+    console.error("Error creating order:", error);
+    res.status(500).json({ message: "Error creating order" });
+  }
+});
+// router.post("/orders", async (req, res) => {
+//   try {
+//     const { amount } = req.body; // Amount in smallest currency unit (e.g., paisa in INR)
+
+//     // Create order options
+//     const options = {
+//       amount: amount, // Amount in smallest currency unit
+//       currency: "INR", // Currency code
+//       // receipt: `order_${Date.now()}`, // Unique receipt identifier
+//     };
+
+//     // Create order using Razorpay API
+//     razorpay.orders.create(options, (err, order) => {
+//       if (err) {
+//         console.error("Error creating order:", err);
+//         return res.status(500).json({ message: "Error creating order" });
+//       } else {
+//         // Order created successfully, return order_id to the client
+//         res.status(200).json({ order_id: order.id });
+//       }
+//     });
+//   } catch (error) {
+//     console.error("Error creating order:", error);
+//     res.status(500).json({ message: "Error creating order" });
+//   }
+// });
 
 // Endpoint to add an event with image upload
 router.post("/eventsAdd", upload.single("image"), async (req, res) => {

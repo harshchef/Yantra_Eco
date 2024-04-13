@@ -1,14 +1,35 @@
 // // AddEventForm.js
 
 
-import React, { useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import axios from "axios";
 import "./AddEventForm.css"; // Import CSS file
+import marathon from './Marathon.jpg';
+import sport from './Sports.jpg';
+import planting from './PlantationTeamBuilding.jpeg';
+import charity from './CharityTeamBuilding.jpg';
+import cheer from './PeopleCheering.jpg';
+
 
 function AddEventForm() {
+  
+  // const observer = new IntersectionObserver(entries => {
+  //   // Loop over the entries
+  //   entries.forEach(entry => {
+  //     // If the element is visible
+  //     if (entry.isIntersecting) {
+  //       // Add the animation class
+  //       entry.target.classList.add('slideInLeft');
+  //     }
+  //   });
+  // });
+  
+  // observer.observe(document.querySelector('.image-container'));
+  
   const [formData, setFormData] = useState({
     eventName: "",
     organization: "",
+  // description:"",
     time: "",
     dayDate: "",
     venue: "",
@@ -34,6 +55,7 @@ function AddEventForm() {
       const formDataToSend = new FormData();
       formDataToSend.append("eventName", formData.eventName);
       formDataToSend.append("organization", formData.organization);
+      // formDataToSend.append("description", formData.description);
       formDataToSend.append("time", formData.time);
       formDataToSend.append("dayDate", formData.dayDate);
       formDataToSend.append("venue", formData.venue);
@@ -60,9 +82,18 @@ function AddEventForm() {
   };
 
   return (
-    <div className="form-container">
+    <div className="container">
       <h2>Add Event</h2>
-      <form onSubmit={handleSubmit}>
+      <h3>If you are willing to host an event then contact us.</h3>
+      <h3>Fill in the details of the event and let the world know about it.</h3>
+      <div className="row">
+      <div className="image-container" style={{float: "right"}}>
+        <img className="image" src={marathon} alt="Image1"/>
+        <img className="image" src={sport} alt="Image2"/>
+        <img className="image" src={planting} alt="Image3"/>
+      </div>
+      <form className= "form-container" onSubmit={handleSubmit}>
+      <p>***All fields are required***</p>
         <div className="form-group">
           <label>Event Name:</label>
           <input
@@ -83,6 +114,16 @@ function AddEventForm() {
             required
           />
         </div>
+        {/* <div className="form-group">
+          <label>Description:</label>
+          <textarea style={{width:"800px"}}
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            rows={5}
+            required
+          />
+        </div> */}
         <div className="form-group">
           <label>Time:</label>
           <input
@@ -145,6 +186,11 @@ function AddEventForm() {
         </div>
         <button type="submit">Add Event</button>
       </form>
+      </div>
+      <div className="row2">
+        <img className="image-seperate" src={cheer} alt="Image5" style={{marginLeft:"50px"}}/>
+        <img className="image-seperate" src={charity} alt="Image5"/>
+      </div>
     </div>
   );
 }

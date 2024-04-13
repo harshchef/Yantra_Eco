@@ -6,12 +6,22 @@ const mongoose = require("mongoose");
 const eventRoutes = require("./routes");
 const cors = require("cors");
 const app = express();
+const morgan=require("morgan")
 const multer = require("multer");
 const path = require("path");
-
+const bodyParser = require("body-parser");
+const Razorpay = require("razorpay");
 // Middleware
 app.use(express.json());
+// app.use(morgan("dev"));
+app.use(express.urlencoded({extended:false}));
 app.use(cors());
+const razorpay = new Razorpay({
+  key_id: "key_secret",
+  key_secret: "1EWqm2NVGrHQiV0MUYGL50Qp",
+});
+
+
 
 // Connect to MongoDB Atlas
 mongoose
