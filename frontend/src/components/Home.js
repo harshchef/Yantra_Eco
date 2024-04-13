@@ -5,6 +5,7 @@ import "./Home.css"; // Update import to match the new component name
 function Home() {
   const [events, setEvents] = useState([]);
   const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
   useEffect(() => {
     fetchEvents();
   }, []);
@@ -18,14 +19,21 @@ function Home() {
       console.error("Error fetching events:", error);
     }
   };
-  const handleBook = async (userId) => {
-    try {
-      // Make API call to add deposit for the user
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value); // Set the searchQuery state
+  };
 
-      // Navigate to a new page after adding the deposit
-      navigate(`/events/${userId}`);
+  const filteredEvents = events.filter((event) =>
+    event.eventName.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  const handleBook = async (eventId) => {
+    try {
+      // Make API call to handle booking
+
+      // Navigate to a new page after booking
+      navigate(`/events/${eventId}`); // Corrected the string interpolation
     } catch (error) {
-      console.error("Error adding deposit:", error);
+      console.error("Error booking event:", error);
     }
   };
 
@@ -54,26 +62,37 @@ function Home() {
             type="text"
             placeholder="Find Event"
             className="search-input"
+            value={searchQuery}
+            onChange={handleSearchChange}
           />
         </div>
       </header>
+      <div></div>
       <main className="home-main">
         <section className="sustainable-platform">
-          <h2>SUSTAINABLE PLATFORM</h2>
-          <div>
-            {events.map((event) => (
-              <div key={event._id}>
-                {/* <img
+          <div className="homeInitial">
+            <div className="initialText">
+              <h2>SUSTAINABLE PLATFORM</h2>
+            </div>
+          </div>
+          {filteredEvents.map((event) => (
+            <div key={event._id} className="event-container">
+              {event.imageUrl && (
+                <img
                   src={`${event.imageUrl}`}
-                  alt={event.eventName}
-                /> */}
-                {event.imageUrl && (
-                  <img
-                    src={`${event.imageUrl}`}
-                    alt="Event"
-                    style={{ maxWidth: "30%", height: "30%" }}
-                  />
-                )}
+                  alt="Event"
+                  style={{
+                    maxWidth: "30%",
+                    height: "30%",
+                    float: "left",
+                    paddingTop: "15%",
+                    marginLeft: "auto",
+                  }}
+                />
+              )}
+              <div className="event-details">
+                {/* Wrap event details in a div */}
+                <h3>{event.eventName}</h3>
                 <p>Venue: {event.venue}</p>
                 <p>Organization: {event.organization}</p>
                 <p>Day: {event.dayDate}</p>
@@ -82,8 +101,9 @@ function Home() {
                 <p>Remaining Seats:{event.totalSeats - event.seatsBooked}</p>
                 <button onClick={() => handleBook(event._id)}>Book</button>
               </div>
-            ))}
-          </div>
+              <div style={{ clear: "both" }}></div> {/* Clear the float */}
+            </div>
+          ))}
         </section>
       </main>
     </div>

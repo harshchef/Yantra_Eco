@@ -1,27 +1,33 @@
-// AboutUsPage.js
+// // AboutUsPage.js
 
-import React from "react";
-import "./AboutUs.css"; // You can create this CSS file for styling
-
+ import React from "react";
+ import "./AboutUs.css"; // You can create this CSS file for styling
+import Image from "./Gardening.jpg";
 const AboutUsPage = () => {
   return (
-    <div className="about-us-container">
-      <h1>About Us</h1>
-      <p>
-        Welcome to our company! We are passionate about creating amazing web
-        experiences. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Sed ac justo euismod, cursus libero vel, fermentum nunc. Nullam nec
-        justo vel libero tincidunt vestibulum. In hac habitasse platea dictumst.
-      </p>
-      <p>
-        Our team consists of talented developers, designers, and dreamers who
-        work together to build innovative solutions. We believe in
-        collaboration, creativity, and continuous learning.
-      </p>
-      <p>
-        Feel free to reach out to us if you have any questions or want to
-        collaborate!
-      </p>
+    <div className="abtcontainer">
+      <div className="abttitle">
+        <h1>About Us</h1>
+      </div>
+      <div className="abtsections">
+        <div className="abtsection1">
+          <p>
+            Are you passionate about sustaianbility? Do you find events related
+            to sustaianbility cool? Then this is where you need to be. Our
+            website helps you find Non-Governmental Organizations (NGOs) and
+            other Corporate Entities that are hosting these events and lets you
+            book and enjoy them. You can find the relevant event that you like
+            and book your tickets accordingly. Find the roles that you want to
+            participate in and have a great time. Great for a good family time
+            and team building excercises.
+          </p>
+       
+        </div>
+        <div className="abtslant-divider"></div>
+        <div className="abtsection2">
+          <img className="abtabout" src={Image} alt="Placeholder" />
+        </div>
+      </div>
     </div>
   );
 };

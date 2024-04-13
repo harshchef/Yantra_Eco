@@ -34,7 +34,7 @@
 
 .form-group input[type="date"] {
     width: calc(100% - 16px);
-    /* Adjust for date input's default arrow */
+    
 }
 
 .form-group button {
@@ -51,4 +51,4 @@
 
 .form-group button:hover {
     background-color: #0056b3;
-}
+} 

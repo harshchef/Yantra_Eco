@@ -1,9 +1,111 @@
-/* div {
-    
-    background-image: url("./Gardening.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
-h1,p{
- color: white;   
-} */
+
+* {
+    padding: 0;
+    border: none;
+}
+
+.abtcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+.abttitle {
+    width: 100%;
+    background: linear-gradient(-45deg, #a0ee52, #23d5d5, #3ce7d6, #94d523);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: aliceblue;
+    font-size: 65px;
+    font-weight: 500;
+}
+
+p {
+    font-size: 30px;
+}
+
+.abtsections {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 120px);
+    background-color: aliceblue;
+
+}
+
+.abtsection1 {
+    width: 50%;
+    background-color: rgb(251, 231, 208);
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+.abtsection2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.abtabout {
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+}
+
+.abtslant-divider {
+    width: 0;
+    height: 0;
+    border-top: 82.6vh solid transparent;
+    border-left: 14vw solid rgb(251, 231, 208);
+
+}
+
+h1,
+p,
+img {
+    opacity: 0;
+    animation: popUp 0.5s ease-in forwards;
+    transition: transform 1s;
+}
+
+@keyframes popUp {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+h1:hover,
+p:hover,
+img:hover {
+    transform: scale(1.1) !important;
+}
