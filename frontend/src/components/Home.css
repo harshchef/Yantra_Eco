@@ -113,7 +113,7 @@ button {
   font-size: 20px;
 } */
 
-.home {
+/* .home {
   font-family: 'Arial', sans-serif;
   position: relative;
   background: linear-gradient(-45deg, #52eee1, #23a6d5, #3ce7d6, #23d53e);
@@ -207,6 +207,145 @@ button {
 
 .event-container {
   border: 1px solid #000;
+ 
+  padding: 10px;
+  margin: 0 auto 20px;
+  width: 50%;
+  overflow: hidden;
+  background-color: peachpuff;
+  border-radius: 2%;
+}
+
+
+.event-details {
+
+  overflow: hidden;
+  font-family: 'snas-serif';
+
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgb(14, 193, 29);
+  font-family: 'Arial';
+  font-size: 20px;
+
+} */
+
+.home {
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  background: linear-gradient(-45deg, #52eee1, #23a6d5, #3ce7d6, #23d53e);
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.home-header {
+  background-color: #333;
+  color: white;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: visible;
+}
+
+.home-title {
+  font-size: 24px;
+}
+
+.home-nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.home-nav li {
+  margin: 0 10px;
+}
+
+.home-nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.search-container {
+  display: block;
+  align-items: center;
+}
+
+.search-input {
+  padding: 8px;
+  margin-left: 10px;
+}
+
+.sustainable-platform {
+  padding: 20px;
+  text-align: center;
+}
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.eventNameAnimate {
+  animation: slideInFromTop 1.5s ease-in-out;
+  opacity: 1;
+  /* Ensure initial opacity is set to 0 */
+}
+
+.homeInitial {
+  border: 1px solid #000;
+  padding: 10px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  position: relative;
+  width: 50%;
+}
+
+.bgImg {
+  max-width: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.initialText {
+  border: 1px solid #000;
+  position: relative;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 1;
+  color: #fff;
+}
+
+.event-container {
+  border: 1px solid #000;
   /*previously, color was #ccc*/
   padding: 10px;
   margin: 0 auto 20px;
@@ -230,8 +369,13 @@ button {
   width: 150px;
   height: 50px;
   border-radius: 10px;
+  border: solid #fff;
   background-color: rgb(14, 193, 29);
   font-family: 'Arial';
   font-size: 20px;
+  color: #fff;
+}
 
+.button:hover {
+  cursor: crosshair;
 }

@@ -120,6 +120,210 @@
 
 // export default Home;
 
+// import React, { useState, useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
+// import "./Home.css";
+
+// function Home() {
+//   const [events, setEvents] = useState([]);
+//   const navigate = useNavigate();
+//   const [searchQuery, setSearchQuery] = useState("");
+//   const [loading, setLoading] = useState(true);
+
+//   useEffect(() => {
+//     fetchEvents();
+//   }, []);
+
+//   const fetchEvents = async () => {
+//     try {
+//       const response = await fetch("http://localhost:3000/events");
+//       if (!response.ok) {
+//         throw new Error("Failed to fetch events");
+//       }
+//       const data = await response.json();
+//       setEvents(data);
+//       setLoading(false);
+//     } catch (error) {
+//       console.error("Error fetching events:", error);
+//       setLoading(false);
+//     }
+//   };
+
+//   const handleSearchChange = (e) => {
+//     setSearchQuery(e.target.value);
+//   };
+
+//   const handleBook = async (eventId) => {
+//     try {
+//       navigate(`/events/${eventId}`);
+//     } catch (error) {
+//       console.error("Error booking event:", error);
+//     }
+//   };
+//   const formatEventDate = (dateString) => {
+//     const eventDate = new Date(dateString);
+//     const formattedDate = eventDate.toLocaleDateString("en-GB", {
+//       day: "2-digit",
+//       month: "2-digit",
+//       year: "numeric",
+//     });
+//     return formattedDate;
+//   };
+//   // Filter events based on search query
+//   const filteredEvents = events.filter((event) =>
+//     event.eventName.toLowerCase().includes(searchQuery.toLowerCase())
+//   );
+
+//   return (
+//     <div className="home">
+//       <header className="home-header">
+//         <h1 className="home-title">Takatak</h1>
+//         <nav className="home-nav">
+//           <ul>
+//             <li>
+//               <a href="/">Home</a>
+//             </li>
+//             <li>
+//               <a href="/maps">Events</a>
+//             </li>
+           
+//             <li>
+//               <a href="/about-us">About Us</a>
+//             </li>
+//           </ul>
+//         </nav>
+//         <div className="search-container">
+//           <input
+//             type="text"
+//             placeholder="Find Event"
+//             className="search-input"
+//             value={searchQuery}
+//             onChange={handleSearchChange}
+//           />
+//         </div>
+//       </header>
+//       {loading ? (
+//         <div>Loading...</div>
+//       ) : (
+//         <main className="home-main">
+//           <section className="sustainable-platform">
+//             <div className="homeInitial">
+//               <div className="initialText">
+//                 <h2>SUSTAINABLE PLATFORM</h2>
+//               </div>
+//             </div>
+//             {filteredEvents.map((event) => (
+//               <div key={event._id} className="event-container">
+//                 {event.imageUrl && (
+//                   <img
+//                     src={`${event.imageUrl}`}
+//                     alt="Event"
+//                     style={{
+//                       maxWidth: "30%",
+//                       height: "30%",
+//                       float: "left",
+//                       paddingTop: "25%",
+//                       marginLeft: "auto",
+//                       borderRadius: "5%",
+//                     }}
+//                   />
+//                 )}
+//                 <div className="event-details">
+//                   <h1>{event.eventName}</h1>
+//                   <div
+//                     style={{
+//                       width: "60%",
+//                       textAlign: "left",
+//                       paddingLeft: "25%",
+//                     }}
+//                   >
+//                     <p style={{ fontSize: "20px", color: "grey" }}>
+//                       <span
+//                         style={{
+//                           fontWeight: "bold",
+//                           textDecoration: "underline",
+//                           color: "black",
+//                         }}
+//                       >
+//                         VENUE
+//                       </span>{" "}
+//                       {event.venue}
+//                     </p>
+//                     <p style={{ fontSize: "20px", color: "grey" }}>
+//                       <span
+//                         style={{
+//                           fontWeight: "bold",
+//                           textDecoration: "underline",
+//                           color: "black",
+//                         }}
+//                       >
+//                         ORGANIZATION
+//                       </span>{" "}
+//                       {event.organization}
+//                     </p>
+//                     <p style={{ fontSize: "20px", color: "grey" }}>
+//                       <span
+//                         style={{
+//                           fontWeight: "bold",
+//                           textDecoration: "underline",
+//                           color: "black",
+//                         }}
+//                       >
+//                         DAY
+//                       </span>{" "}
+//                       {formatEventDate(event.dayDate)}
+//                     </p>
+//                     <p style={{ fontSize: "20px", color: "grey" }}>
+//                       <span
+//                         style={{
+//                           fontWeight: "bold",
+//                           textDecoration: "underline",
+//                           color: "black",
+//                         }}
+//                       >
+//                         TOTAL SEATS
+//                       </span>{" "}
+//                       {event.totalSeats}
+//                     </p>
+//                     <p style={{ fontSize: "20px", color: "grey" }}>
+//                       <span
+//                         style={{
+//                           fontWeight: "bold",
+//                           textDecoration: "underline",
+//                           color: "black",
+//                         }}
+//                       >
+//                         COST
+//                       </span>{" "}
+//                       {event.cost}
+//                     </p>
+//                     <p style={{ fontSize: "20px", color: "grey" }}>
+//                       <span
+//                         style={{
+//                           fontWeight: "bold",
+//                           textDecoration: "underline",
+//                           color: "black",
+//                         }}
+//                       >
+//                         REMAINING SEATS
+//                       </span>{" "}
+//                       {event.totalSeats - event.seatsBooked}
+//                     </p>
+//                   </div>
+//                   <button onClick={() => handleBook(event._id)}>BOOK</button>
+//                 </div>
+//               </div>
+//             ))}
+//           </section>
+//         </main>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default Home;
+
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
@@ -129,6 +333,7 @@ function Home() {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
+  const [showAnimation, setShowAnimation] = useState(false);
 
   useEffect(() => {
     fetchEvents();
@@ -148,7 +353,15 @@ function Home() {
       setLoading(false);
     }
   };
-
+    const formatEventDate = (dateString) => {
+      const eventDate = new Date(dateString);
+      const formattedDate = eventDate.toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      });
+      return formattedDate;
+    };
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
@@ -161,6 +374,16 @@ function Home() {
     }
   };
 
+  const handleScroll = () => {
+    const eventNameAnimate = document.querySelector(".eventNameAnimate");
+    if (eventNameAnimate && !showAnimation) {
+      const topPosition = eventNameAnimate.getBoundingClientRect().top;
+      const screenHeight = window.innerHeight;
+      if (topPosition < screenHeight * 0.75) {
+        setShowAnimation(true);
+      }
+    }
+  };
   // Filter events based on search query
   const filteredEvents = events.filter((event) =>
     event.eventName.toLowerCase().includes(searchQuery.toLowerCase())
@@ -176,11 +399,9 @@ function Home() {
               <a href="/">Home</a>
             </li>
             <li>
-              <a href="/events">Events</a>
+              <a href="/maps">Events</a>
             </li>
-            <li>
-              <a href="/design">Design</a>
-            </li>
+
             <li>
               <a href="/about-us">About Us</a>
             </li>
@@ -223,7 +444,15 @@ function Home() {
                   />
                 )}
                 <div className="event-details">
-                  <h1>{event.eventName}</h1>
+                  <div
+                    className={
+                      showAnimation
+                        ? "eventNameAnimate animate"
+                        : "eventNameAnimate"
+                    }
+                  >
+                    <h1>{event.eventName}</h1>
+                  </div>
                   <div
                     style={{
                       width: "60%",
@@ -265,7 +494,7 @@ function Home() {
                       >
                         DAY
                       </span>{" "}
-                      {event.dayDate}
+                      {formatEventDate(event.dayDate)}
                     </p>
                     <p style={{ fontSize: "20px", color: "grey" }}>
                       <span
@@ -304,7 +533,12 @@ function Home() {
                       {event.totalSeats - event.seatsBooked}
                     </p>
                   </div>
-                  <button onClick={() => handleBook(event._id)}>BOOK</button>
+                  <button
+                    onClick={() => handleBook(event._id)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    BOOK SEAT
+                  </button>
                 </div>
               </div>
             ))}
@@ -316,5 +550,3 @@ function Home() {
 }
 
 export default Home;
-
-

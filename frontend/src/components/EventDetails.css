@@ -1,114 +1,141 @@
 /*EvnetDetails Css*/
+/*EvnetDetails Css*/
 
-.wuxi-ka-image{
-    width:200px;
-    height: 200px;
-    margin-right: 100px; 
-    margin-top: 50px;
-    animation: slideInLeft 2s forwards ease-in-out;
-    opacity: 0;
-}
-.row2{
-    text-align: center;
-    font-size: 30px;
-}
-.row3{
-    text-align: center;
-    size : 50px;
-}
-.wuxi-ka-main-container p{
-    color: black;
-    font-size: 30px;
-}
-.wuxi-ka-main-container h2{
-    text-align: center;
-    color: black;
-    font-size: 40px;
+.wuxi-ka-image {
+  width: 200px;
+  height: 200px;
+  margin-right: 100px;
+  margin-top: 50px;
+  animation: slideInLeft 2s forwards ease-in-out;
+  opacity: 0;
 }
 
-.event-name{
-    margin-left: 50px;
-    animation: slideInRight 1s forwards ease-in-out;
-    opacity: 0;
+.home-header {
+  background-color: #333;
+  color: white;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: visible;
+  width: 100%;
 }
-.venue{
-    margin-left: 50px;
-    animation: slideInRight 1.5s forwards ease-in-out;
-    opacity: 0;
+
+.row2 {
+  font-size: 30px;
+  text-align: center;
+  margin-left: 400px;
 }
-.organization{
-    margin-left: 50px;
-    animation: slideInRight 2s forwards ease-in-out;
-    opacity: 0;
+
+.row3 {
+  size: 50px;
+  text-align: center;
 }
-.day{
-    margin-left: 50px;
-    animation: slideInRight 2.5s forwards ease-in-out;
-    opacity: 0;
-}  
-.total-seats{
-    margin-left: 50px;
-    animation: slideInRight 3s forwards ease-in-out;
-    opacity: 0;
+
+.wuxi-ka-main-container p {
+  color: black;
+  font-size: 30px;
 }
-.cost{
-    margin-left: 50px;
-    animation: slideInRight 3.5s forwards ease-in-out;
-    opacity: 0;
+
+.wuxi-ka-main-container h2 {
+  text-align: center;
+  color: white;
+  font-size: 50px;
 }
-.remaining-seats{
-    margin-left: 50px;
-    animation: slideInRight 4s forwards ease-in-out;
-    opacity: 0;
+
+.event-name {
+  margin-left: 50px;
+  animation: slideInRight 1s forwards ease-in-out;
+  opacity: 0;
+}
+
+.venue {
+  margin-left: 50px;
+  animation: slideInRight 1.5s forwards ease-in-out;
+  opacity: 0;
+}
+
+.organization {
+  margin-left: 50px;
+  animation: slideInRight 2s forwards ease-in-out;
+  opacity: 0;
+}
+
+.day {
+  margin-left: 50px;
+  animation: slideInRight 2.5s forwards ease-in-out;
+  opacity: 0;
+}
+
+.total-seats {
+  margin-left: 50px;
+  animation: slideInRight 3s forwards ease-in-out;
+  opacity: 0;
+}
+
+.cost {
+  margin-left: 50px;
+  animation: slideInRight 3.5s forwards ease-in-out;
+  opacity: 0;
+}
+
+.remaining-seats {
+  margin-left: 50px;
+  animation: slideInRight 4s forwards ease-in-out;
+  opacity: 0;
 }
 
 @keyframes slideInRight {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0%);
-      opacity: 1;
-    }
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
 }
+
 @keyframes slideInLeft {
-    0% {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0%);
-      opacity: 1;
-    }
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
 }
 
 .bg {
-    animation:slide 3s ease-in-out infinite alternate;
-    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
-    bottom:0;
-    left:-50%;
-    opacity:.5;
-    position:fixed;
-    right:-50%;
-    top:0;
-    z-index:-1;
-  }
-  
-  .bg2 {
-    animation-direction:alternate-reverse;
-    animation-duration:4s;
-  }
-  
-  .bg3 {
-    animation-duration:5s;
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: .5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
   }
 
-  @keyframes slide {
-    0% {
-      transform:translateX(-25%);
-    }
-    100% {
-      transform:translateX(25%);
-    }
+  100% {
+    transform: translateX(25%);
   }
+}

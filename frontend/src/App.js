@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AboutUsPage from "./components/AboutUs";
 import AddEventForm from "./components/AddEventForm";
 import EventDetails from "./components/EventDetails";
+import MapContainer from "./components/MapContainer";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/admin/add-event" element={<AddEventForm />} />
-          <Route path="/events/:id" element={<EventDetails/>} />
+          <Route path="/maps" element={< MapContainer/>} />
+          <Route path="/events/:id" element={<EventDetails />} />
           <Route path="/about-us" element={<AboutUsPage />} />
         </Routes>
       </div>
